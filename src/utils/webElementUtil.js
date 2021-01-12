@@ -16,7 +16,7 @@ class WebElementUtils
     getPageTitle(pageTitle){
         browser.waitUntil(function(){
             return (browser.getTitle() === pageTitle)
-        },10000, 'title was not retreived in give time')
+        },100000, 'title was not retreived in give time')
         return browser.getTitle()
     }
     isElementDisplayed(element){
