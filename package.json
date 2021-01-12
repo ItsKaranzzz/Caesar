@@ -1,0 +1,32 @@
+{
+  "name": "caesar",
+  "version": "1.0.0",
+  "description": "This Project is as assignment related to js learning on which the test framework need to be designed on to automate Gitlab basic functionalities",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/.bin/wdio ./wdio.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/karanc/caesar.git"
+  },
+  "author": "Karan, Arul, Kavitha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/karanc/caesar/issues"
+  },
+  "homepage": "https://gitlab.com/karanc/caesar#readme",
+  "devDependencies": {
+    "@wdio/allure-reporter": "^6.11.0",
+    "@wdio/cli": "^6.11.3",
+    "@wdio/local-runner": "^6.11.3",
+    "@wdio/mocha-framework": "^6.11.0",
+    "@wdio/sync": "^6.11.0",
+    "chai": "^4.2.0",
+    "chai-webdriverio": "^1.0.0",
+    "chromedriver": "^87.0.5",
+    "local-runner": "^0.1.1-alpha",
+    "wdio-chromedriver-service": "^6.0.4",
+    "webdriverio": "^6.11.3"
+  }
+}
