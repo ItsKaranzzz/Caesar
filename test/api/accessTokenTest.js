@@ -1,6 +1,6 @@
 const chai = require("chai");
 const expect = chai.expect;
-const request = require("../../src/utils/httpRequestGenerator");
+const request = require("../../src/utils/requestBody");
 const header = require("../../src/utils/header");
 const config = require("../../src/config");
 
