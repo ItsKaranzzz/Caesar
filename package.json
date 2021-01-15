@@ -21,13 +21,23 @@
     "@wdio/cli": "^6.11.3",
     "@wdio/local-runner": "^6.11.3",
     "@wdio/mocha-framework": "^6.11.0",
+    "@wdio/selenium-standalone-service": "^6.11.0",
     "@wdio/spec-reporter": "^6.11.0",
     "@wdio/sync": "^6.11.0",
     "chai": "^4.2.0",
     "chai-webdriverio": "^1.0.0",
     "chromedriver": "^87.0.5",
     "local-runner": "^0.1.1-alpha",
+    "log4js": "^6.3.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
     "wdio-chromedriver-service": "^6.0.4",
     "webdriverio": "^6.11.3"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "@wdio/runner": "^6.12.0"
   }
 }
