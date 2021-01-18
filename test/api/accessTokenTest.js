@@ -17,7 +17,7 @@ describe("Get user details", () => {
   it("Verify user details using private access token", () => {
     let uri = "/personal_access_tokens";
     url = baseUrl + uri;
-    console.log("The access token url is", url)
+    logger.info("The access token url is", url)
     request
     . requestPromiseQuery(url,'GET',headers)
       .then((response) => {
