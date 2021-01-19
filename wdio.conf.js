@@ -128,7 +128,11 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ['spec'],
+    reporters: ['spec',['allure', {
+        outputDir: './reports/allure-results',
+       disableWebdriverStepsReporting: true,
+       disableWebdriverScreenshotsReporting: true,
+    }]],
 
 
     
@@ -152,8 +156,11 @@ exports.config = {
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    // onPrepare: function (config, capabilities) {
-    // },
+     onPrepare: function () {
+        const del = require('del');
+        del.sync('reports');
+        del.sync('allure-report');
+    },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
      * for that worker as well as modify runtime environments in an async fashion.
@@ -260,8 +267,15 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
-    // onComplete: function(exitCode, config, capabilities, results) {
-    // },
+    onComplete: function() {
+        const  allure = require('allure-commandline');
+                return new Promise((resolve, reject) => { 
+            if(allure(['generate', 'reports/allure-results', '--clean']).sync ){
+                resolve();
+                }
+            })
+       
+    },
     /**
     * Gets executed when a refresh happens.
     * @param {String} oldSessionId session ID of the old session
