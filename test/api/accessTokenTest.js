@@ -1,22 +1,19 @@
 const chai = require("chai");
 const expect = chai.expect;
-const request = require("../../src/utils/requestBody");
-const header = require("../../src/utils/header");
-const getUrl = require("../../src/configs/url");
-
-var log4js = require("log4js");
-var log = require("../../src/utils/logger");
+const request = require("../../src/helpers/requestBody");
+const header = require("../../src/helpers/header");
+const urlConfigs = require("../../src/configs/urlConfigs");
+const log4js = require("log4js");
+const log = require("../../src/helpers/logger");
 log4js.configure(log.logging());
-var logger = log4js.getLogger();
+const logger = log4js.getLogger();
 
 describe("Get user details", () => {
-  let baseUrl = getUrl.apiBaseUrl;
-  let url;
+  let baseUrl = urlConfigs.apiBaseUrl;
+  let url = baseUrl + urlConfigs.personalAccessTokenApiUri;
   let headers = header.plainHeader();
 
   it("Verify user details using private access token @smoke", (done) => {
-    let uri = "/personal_access_tokens";
-    url = baseUrl + uri;
     logger.info("The access token url is", url);
     request
       .requestPromiseQuery(url, "GET", headers)
