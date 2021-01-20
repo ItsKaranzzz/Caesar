@@ -1,33 +1,29 @@
 const chai = require("chai");
 const expect = chai.expect;
-const request = require("../../src/utils/requestBody");
-const header = require("../../src/utils/header");
-const getUrl = require("../../src/configs/url");
+const request = require("../../src/helpers/requestBody");
+const header = require("../../src/helpers/header");
+const urlConfigs = require("../../src/configs/urlConfigs");
+const testDataFilePath = "../../resources/testData/newUser.json";
 const fs = require("fs");
 const path = require("path");
-
-var log4js = require("log4js");
-var log = require("../../src/utils/logger");
+const log4js = require("log4js");
+const log = require("../../src/helpers/logger");
 log4js.configure(log.logging());
-var logger = log4js.getLogger();
+const logger = log4js.getLogger();
 
 describe("Create new private project in gitlab", () => {
-  let baseUrl = getUrl.apiBaseUrl;
-  let url;
+  let baseUrl = urlConfigs.apiBaseUrl;
+  let url = baseUrl + urlConfigs.projectApiUri;
   let headers = header.plainHeader();
-  let data = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../../src/testdata/newUser.json"))
+  let newProjectData = JSON.parse(
+    fs.readFileSync(path.join(__dirname, testDataFilePath))
   );
 
   it("Verify new project is created with status code 201 @smoke", (done) => {
     logger.info("Create New Project Api Test Starts");
-    let uri = "/projects";
-    url = baseUrl + uri;
-    console.log(url);
     request
-      .requestPromiseQuery(url, "POST", headers, data)
+      .requestPromiseQuery(url, "POST", headers, newProjectData)
       .then((response) => {
-        console.log(url);
         logger.info("url to create project is", url);
         logger.info(
           "response in post service is",
