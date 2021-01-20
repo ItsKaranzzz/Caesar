@@ -1,0 +1,28 @@
+stages:
+- API
+
+.automation_job_template: &init
+  script:
+    - rm -rf caesar
+    - git clone https://gitlab.com/karanc/caesar.git
+    - cd caesar
+    - npx mocha ./test/api/*.js --grep $TAG --reporter mocha-allure-reporter
+    - allure generate allure-results  
+  artifacts:
+    when: always
+    paths:
+      - caesar/allure-report
+  allow_failure: true
+  when: manual
+  tags:
+    - k-runner 
+ApiSmokeTest:
+   <<: *init
+   stage: API
+   variables:
+    TAG: "@smoke"
+ApiRegressionTest:
+    <<: *init
+    stage: API
+    variables:
+     TAG: "@regression"
