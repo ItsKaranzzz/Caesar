@@ -13,11 +13,11 @@ class WebElementUtils
         element.waitForDisplayed()
         return element.getText()
     }
-    getPageTitle(pageTitle){
+    getPageTitle(){
         browser.waitUntil(function(){
-            return (browser.getTitle() === pageTitle)
+            return (browser.getTitle())
         },100000, 'title was not retreived in give time')
-        return browser.getTitle()
+        return browser.getTitle();
     }
     isElementDisplayed(element){
         element.waitForDisplayed()

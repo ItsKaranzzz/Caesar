@@ -10,7 +10,7 @@ get rememberMe(){return $('#user_remember_me')}
 get invalidLoginMessage(){return $('div[class="flash-alert mb-2"]')}
 
 getPageTitle(){
-    return elementUtil.getPageTitle(constants.SIGN_IN_PAGE_TITLE)
+    return elementUtil.getPageTitle()
 }
 
 signIn(email, pwd){
