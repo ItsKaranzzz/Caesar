@@ -9,7 +9,8 @@ $ npm i --save-dev @wdio/cli
 Clone the repo:
 https://gitlab.com/karanc/caesar.git
 
-
+allure generate allure-results    
+allure open 
 
 ## Usage
 ~ npx mocha ./test/api/*.js

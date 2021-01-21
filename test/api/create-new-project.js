@@ -1,41 +1,28 @@
-const chai = require("chai");
-const expect = chai.expect;
-const request = require("../../src/helpers/request-body");
-const header = require("../../src/helpers/header");
-const urlConfigs = require("../../src/configs/url-configs");
-const testDataFilePath = "../../resources/test-data/new-project.json";
+const projectDataFile = "../../resources/test-data/new-project.json";
 const fs = require("fs");
 const path = require("path");
-const log4js = require("log4js");
-const log = require("../../src/helpers/logger");
-log4js.configure(log.logging());
-const logger = log4js.getLogger();
-const util = require("../../src/utils/common-util");
+const base = require("../../src/api/api-test-base");
 
 describe("Create new private project in gitlab", () => {
-  let baseUrl = urlConfigs.apiBaseUrl;
-  let url = baseUrl + urlConfigs.projectApiUri;
-  let headers = header.plainHeader();
-  
-  let newProjectData = JSON.parse(
-    fs.readFileSync(path.join(__dirname, testDataFilePath))
+  let url = base.endpoints.createProjectUrl;  
+  let requestBody = JSON.parse(
+    fs.readFileSync(path.join(__dirname, projectDataFile))
   );
-  newProjectData.name = util.getRandomProjectName();
-  console.log(newProjectData);
+  requestBody.name = base.util.getRandomProjectName();
 
   it("Verify new project is created with status code 201 @smoke", (done) => {
-    logger.info("Create New Project Api Test Starts");
-    request
-      .requestPromiseQuery(url, "POST", headers, newProjectData)
+    base.logger.info("Create New Project Api Test Starts");
+    base.api.request
+      .requestPromiseQuery(url, "POST", base.api.header.plainHeader(), requestBody)
       .then((response) => {
-        logger.info("url to create project is", url);
-        logger.info(
+        base.logger.info("url to create project is", url);
+        base.logger.info(
           "response in post service is",
           JSON.stringify(response.body)
         );
-        expect(response.statusCode).to.equal(201);
-        expect(response.body).to.be.an.instanceof(Object);
-        logger.info("Create New Project Api Test ends");
+        base.expect(response.statusCode).to.equal(201);
+        base.expect(response.body).to.be.an.instanceof(Object);
+        base.logger.info("Create New Project Api Test ends");
       })
       .then(() => done(), done)
       .catch((error) => {
