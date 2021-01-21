@@ -1,19 +1,22 @@
 const chai = require("chai");
 const expect = chai.expect;
-const assert1 = chai.should;
 const request = require("../../src/helpers/requestBody");
 const header = require("../../src/helpers/header");
 const urlConfigs = require("../../src/configs/urlConfigs");
+const util = require("../../src/utils/CommonUtil");
 const log4js = require("log4js");
 const log = require("../../src/helpers/logger");
 const projectAccessLevel = require("../../src/constants/projectAccessLevel");
 const projectMember = require("../../resources/TestData/member.json");
+const projectData = require("../../resources/testData/newProject.json")
 log4js.configure(log.logging());
 const logger = log4js.getLogger();
 
 describe("Add member to project in gitlab", () => {
+  let projectId = projectData.projectId;
   let baseUrl = urlConfigs.apiBaseUrl;
-  let url = baseUrl + urlConfigs.addNewMemberToProjectUri;
+  let uri = util.parse(urlConfigs.addNewMemberToProjectUri,projectId)
+  let url = baseUrl + uri;
   let headers = header.plainHeader();
   let memberData = {
     user_id: projectMember.id,

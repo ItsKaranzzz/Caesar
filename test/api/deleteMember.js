@@ -3,14 +3,21 @@ const expect = chai.expect;
 const request = require("../../src/helpers/requestBody");
 const header = require("../../src/helpers/header");
 const urlConfigs = require("../../src/configs/urlConfigs");
+const memberData = require("../../resources/testData/member.json");
+const projectData = require("../../resources/testData/newProject.json");
+const util = require("../../src/utils/CommonUtil");
 const log4js = require("log4js");
 const log = require("../../src/helpers/logger");
 log4js.configure(log.logging());
 const logger = log4js.getLogger();
 
 describe("Delete member from project", () => {
+  let projectId = projectData.projectId;
+  let memberId = memberData.id;
+  let uri = util.parse(urlConfigs.deleteMember,projectId,memberId)
+  
   let baseUrl = urlConfigs.apiBaseUrl;
-  let url = baseUrl + urlConfigs.deleteMember;
+  let url = baseUrl + uri;
   let headers = header.plainHeader();
 
   it("Verify user details using private access token @smoke", (done) => {
