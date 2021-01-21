@@ -1,4 +1,4 @@
-# Caesar
+# Caesar Automation Framework
 
 Caesar is a javascript test automation framework solution to cater to various testing needs such as web, apis and mobile.
 
