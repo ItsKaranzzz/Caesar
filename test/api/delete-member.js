@@ -1,11 +1,11 @@
 const chai = require("chai");
 const expect = chai.expect;
-const request = require("../../src/helpers/requestBody");
+const request = require("../../src/helpers/request-body");
 const header = require("../../src/helpers/header");
-const urlConfigs = require("../../src/configs/urlConfigs");
-const memberData = require("../../resources/testData/member.json");
-const projectData = require("../../resources/testData/newProject.json");
-const util = require("../../src/utils/CommonUtil");
+const urlConfigs = require("../../src/configs/url-configs");
+const memberData = require("../../resources/test-data/member.json");
+const projectData = require("../../resources/test-data/new-project.json");
+const util = require("../../src/utils/common-util");
 const log4js = require("log4js");
 const log = require("../../src/helpers/logger");
 log4js.configure(log.logging());
