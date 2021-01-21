@@ -7,6 +7,11 @@ class CommonUtils{
         return inputString.replace(/%s/g, () => args[i++]);
     }
 
+    getRandomProjectName(){
+        const result = Math.random().toString(36).substring(2,7);
+        return result;
+    }
+
 }
 
 module.exports = new CommonUtils()

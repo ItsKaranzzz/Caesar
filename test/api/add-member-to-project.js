@@ -8,12 +8,11 @@ const log4js = require("log4js");
 const log = require("../../src/helpers/logger");
 const projectAccessLevel = require("../../src/constants/project-access-levels");
 const projectMember = require("../../resources/test-data/member.json");
-const projectData = require("../../resources/test-data/new-project.json")
 log4js.configure(log.logging());
 const logger = log4js.getLogger();
 
 describe("Add member to project in gitlab", () => {
-  let projectId = projectData.projectId;
+  let projectId = projectMember.projectId;
   let baseUrl = urlConfigs.apiBaseUrl;
   let uri = util.parse(urlConfigs.addNewMemberToProjectUri,projectId)
   let url = baseUrl + uri;

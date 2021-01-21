@@ -4,7 +4,6 @@ const request = require("../../src/helpers/request-body");
 const header = require("../../src/helpers/header");
 const urlConfigs = require("../../src/configs/url-configs");
 const memberData = require("../../resources/test-data/member.json");
-const projectData = require("../../resources/test-data/new-project.json");
 const util = require("../../src/utils/common-util");
 const log4js = require("log4js");
 const log = require("../../src/helpers/logger");
@@ -12,7 +11,7 @@ log4js.configure(log.logging());
 const logger = log4js.getLogger();
 
 describe("Delete member from project", () => {
-  let projectId = projectData.projectId;
+  let projectId = memberData.projectId;
   let memberId = memberData.id;
   let uri = util.parse(urlConfigs.deleteMember,projectId,memberId)
   
