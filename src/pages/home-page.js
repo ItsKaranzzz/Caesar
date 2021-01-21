@@ -1,5 +1,4 @@
-const elementUtil = require('../utils/webElementUtil')
-const constants = require('../constants/PageTitles')
+const elementUtil = require('../utils/web-element-util')
 
 class HomePage{ 
 

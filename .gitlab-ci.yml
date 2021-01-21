@@ -16,12 +16,12 @@ stages:
   when: manual
   tags:
     - k-runner 
-ApiSmokeTest:
+SmokeTests:
    <<: *init
    stage: API
    variables:
     TAG: "@smoke"
-ApiRegressionTest:
+RegressionTests:
     <<: *init
     stage: API
     variables:
