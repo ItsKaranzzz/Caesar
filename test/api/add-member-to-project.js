@@ -1,6 +1,7 @@
 const projectMember = require("../../resources/test-data/member.json");
 const base = require("../../src/api/api-test-base");
 const projectAccessLevel = require("../../src/api/constants/project-access-levels");
+base.log4js.configure(base.log.logging());
 
 describe("Add member to project in gitlab", () => {
   let projectId = projectMember.projectId;

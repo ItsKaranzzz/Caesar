@@ -2,6 +2,7 @@ const projectDataFile = "../../resources/test-data/new-project.json";
 const fs = require("fs");
 const path = require("path");
 const base = require("../../src/api/api-test-base");
+base.log4js.configure(base.log.logging());
 var newProjectId = 0;
 
 describe("Create new private project in gitlab", () => {

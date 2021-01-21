@@ -1,5 +1,6 @@
 const memberData = require("../../resources/test-data/member.json");
 const base = require("../../src/api/api-test-base");
+base.log4js.configure(base.log.logging());
 
 describe("Delete member from project", () => {
   let projectId = memberData.projectId;

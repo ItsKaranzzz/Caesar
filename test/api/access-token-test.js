@@ -1,4 +1,5 @@
 const base = require("../../src/api/api-test-base")
+base.log4js.configure(base.log.logging());
 
 describe("Get user details", () => {
   let url = base.endpoints.personalAccessTokenApiUrl;
