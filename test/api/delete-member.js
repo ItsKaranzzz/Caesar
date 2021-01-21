@@ -6,7 +6,7 @@ describe("Delete member from project", () => {
   let memberId = memberData.id;
   let url = base.util.parse(base.endpoints.deleteMemberUrl,projectId,memberId)
 
-  it("Verify user details using private access token @smoke", (done) => {
+  it("Delete member from project @smoke", (done) => {
     base.logger.info("The delete member url is", url);
     base.api.request
     .requestQuery(url, "DELETE", base.api.header.plainHeader(), function (err, resp) {
