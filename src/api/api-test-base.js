@@ -8,7 +8,4 @@
  exports.log = require("../utils/logger");
  exports.logger = require("log4js").getLogger();
 
-//  exports.testDataFilePath = "../../resources/test-data/new-project.json";
-//  exports.fs = require("fs").readFileSync;
-//  exports.path = require("path");
-exports.util = require("../utils/common-util");
+ exports.util = require("../utils/common-util");

@@ -12,6 +12,7 @@ stages:
     when: always
     paths:
       - caesar/allure-report
+      - caesar/openTestReport.command
   allow_failure: true
   when: manual
   tags:
