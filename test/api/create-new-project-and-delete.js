@@ -8,10 +8,11 @@ var new_project_id =0;
 describe("Create new private project in gitlab", () => {
 
   let url = base.endpoints.createProjectUrl;  
+  
   let requestBody = JSON.parse(
     fs.readFileSync(path.join(__dirname, projectDataFile))
   );
-  requestBody.name = base.util.getRandomProjectName();
+  requestBody.name = base.util.getRandomName();
 
   it("Verify new project is created @smoke", (done) => {
     base.logger.info("Create New Project Api Test Starts");
