@@ -1,7 +1,7 @@
 const { assert } = require('chai')
-const homePage = require('../../src/pages/home-page')
-const signInPage = require('../../src/pages/sign-in-page')
-const constants = require('../../src/constants/page-titles')
+const homePage = require('../../src/web/pages/home-page')
+const signInPage = require('../../src/web/pages/sign-in-page')
+const constants = require('../../src/web/constants/page-titles')
 
 describe("Browser verification page feature", function(){
     

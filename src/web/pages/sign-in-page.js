@@ -1,4 +1,4 @@
-const elementUtil = require('../utils/web-element-util')
+const elementUtil = require('../generic/web-element-util')
 
 class SignInPage{ 
 
