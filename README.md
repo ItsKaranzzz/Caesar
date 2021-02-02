@@ -45,6 +45,8 @@ https://gitlab.com/karanc/caesar.git
 
 ## Usage & commands
 
+For executing tests, the gitlab PRIVATE-TOKEN needs to be updated under src/api/helpers/header.js.
+
 Commands for api test execution : 
 npx mocha ./test/api/*.js --reporter mocha-allure-reporter
 allure generate allure-results    
@@ -54,7 +56,7 @@ Commands for web ui test execution:
 npx wdio run wdio.conf.js --spec ./test/web/**.js 
 
 Command as per test-tags:
-smoke: npx mocha ./test/api/*.js --grep @smoke --reporter mocha-allure-reporter
+smoke: npx mocha ./test/api/*.js --grep @ smoke --reporter mocha-allure-reporter
 regression: npx mocha ./test/api/*.js --grep @regression --reporter mocha-allure-reporter
 
 ## Contributing
